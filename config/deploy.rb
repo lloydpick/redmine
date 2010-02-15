@@ -14,7 +14,7 @@ set :scm_verbose, true
 set :deploy_via, :remote_cache
 set :repository, "git@github.com:lloydpick/redmine.git"
 set :scm, :git
-set :local_shared_files, %w(config/database.yml config/email.yml files)
+set :local_shared_files, %w(config/database.yml config/email.yml files config/initializers/session_store.rb)
 
 ssh_options[:forward_agent] = true
 default_run_options[:pty] = true
