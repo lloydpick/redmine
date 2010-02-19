@@ -93,6 +93,18 @@ ContextMenu.prototype = {
     else{
       this.RightClick(e);
     }
+    var rows_selected = $$('.context-menu-selection');
+    if (rows_selected.length > 1) {
+        new Ajax.Updater({success:'ticket-control'}, this.url,
+          {asynchronous:true,
+           evalScripts:true,
+           parameters:Form.serialize(Event.findElement(e, 'form')),
+           onComplete:function(request){
+                Effect.Appear('ticket-control', {duration: 0.20});
+           }});
+    } else {
+        Effect.Fade('ticket-control', {duration: 0.20});
+    }
   },
   
   showMenu: function(e) {
